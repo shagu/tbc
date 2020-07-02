@@ -59,7 +59,7 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.4;
   
-    max-width: 1500px;
+    max-width: 1250px;
     margin: 20px auto;
     padding: 0 10px;
     word-wrap: break-word;
@@ -71,6 +71,8 @@
   }
   
   button, input, textarea {
+    position: absolute;
+    right: 0;
     transition: background-color var(--animation-duration) linear,
                 border-color var(--animation-duration) linear,
                 color var(--animation-duration) linear,
@@ -81,6 +83,12 @@
   h1 {
     font-size: 2.2em;
     margin-top: 0;
+  }
+
+  div {
+    display: flex;
+    justify-content: left;
+    position: relative;
   }
   
   h1,
