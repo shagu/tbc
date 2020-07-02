@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/main.css">
     <title>The Burning Crusade (2.4.3) Addons</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#table tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
 </head>
 <body>
-    <h1>List of Addons</h1>
+    <div><h1>List of Addons</h1>
+    <input id="search" type="text" placeholder="Search..."></div>
     <table>
         <thead>
             <tr>
@@ -16,7 +28,7 @@
                 <th>Get</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="table">
             <tr>
                 <td>Acheron</td>
                 <td>Raid/party-wide death log.</td>
@@ -208,13 +220,18 @@
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/ImprovedCamera.zip">📥</a></td>
             </tr>
             <tr>
+                <td>ManyItemTooltips</td>
+                <td>Allows you to open an unlimited number of item tooltips.</td>
+                <td><a href="https://github.com/wvault/tbc/raw/master/addons/ManyItemTooltips.zip">📥</a></td>
+            </tr>
+            <tr>
                 <td>nDrums</td>
                 <td>Allows you to set drum rotations.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/nDrums.zip">📥</a></td>
             </tr>
             <tr>
                 <td>nMainbar</td>
-                <td>Minified action bar. This doesn't have any in-game config menu, so all changes must be done by editing .lua files. If you don't know what that is, stay away.</td>
+                <td>Minified action bar. All settings are applied by editing .lua files, there's no in-game menu.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/nMainbar.zip">📥</a></td>
             </tr>
             <tr>
@@ -254,7 +271,7 @@
             </tr>
             <tr>
                 <td>Robin</td>
-                <td>Raid CD tracker, similar to RaidCooldowns. Except, you don't need any mumbojumbo with this. There are no limitations, you can see every CD. The downside? It's uglier.</td>
+                <td>Another Raid CD tracker. This is uglier than RaidCooldowns addon but it shows every CD without going through hoops.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/Robin.zip">📥</a></td>
             </tr>
             <tr>
@@ -294,6 +311,6 @@
             </tr>
         </tbody>
     </table>
-    <footer>Ran into an issue, or have ideas for improvement? Create an issue, or a pull request on <a href="https://github.com/wvault/tbc">Github</a>.</footer>
+    <footer>Ran into a problem, or have ideas for improvement? Create an issue, or a pull request on <a href="https://github.com/wvault/tbc">Github</a>.</footer>
 </body>
 </html>
