@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Burning Crusade (2.4.3) Addons</title>
     <link rel="stylesheet" href="../assets/css/main.css">
     <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/vanilla-back-to-top.min.js"></script>
     <script>
-        $(document).ready(function(){
-          $("#search").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#table tr").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        addBackToTop()
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#search").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#table tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
-          });
         });
     </script>
 </head>
+
 <body>
     <div>
         <h1>Addons</h1>
@@ -103,7 +109,8 @@
             </tr>
             <tr>
                 <td>Blizzard Addons</td>
-                <td>TBC can be iffy to create default addons when you delete your Interface folder. If you're getting .lua errors after deleting it, carry this pack over.</td>
+                <td>TBC can be iffy to create default addons when you delete your Interface folder. If you're getting
+                    .lua errors after deleting it, carry this pack over.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/Blizzard%20Addons.zip">📥</a></td>
             </tr>
             <tr>
@@ -123,7 +130,8 @@
             </tr>
             <tr>
                 <td>Clique</td>
-                <td>A simple addon that enables powerful click-casting and hover-casting on your unit frames and in the 3D game world.</td>
+                <td>A simple addon that enables powerful click-casting and hover-casting on your unit frames and in the
+                    3D game world.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/Clique.zip">📥</a></td>
             </tr>
             <tr>
@@ -173,7 +181,8 @@
             </tr>
             <tr>
                 <td>DiamondThreatMeter</td>
-                <td>Self-explanatory. This is the version that doesn't look like shit, meaning it's not the default one.</td>
+                <td>Self-explanatory. This is the version that doesn't look like shit, meaning it's not the default one.
+                </td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/DiamondThreatMeter.zip">📥</a></td>
             </tr>
             <tr>
@@ -213,12 +222,14 @@
             </tr>
             <tr>
                 <td>HeadCount</td>
-                <td>Tracks a lot of things regarding your raids. Loots, who got them, attendance etc. You can also export this data into various formats.</td>
+                <td>Tracks a lot of things regarding your raids. Loots, who got them, attendance etc. You can also
+                    export this data into various formats.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/HeadCount.zip">📥</a></td>
             </tr>
             <tr>
                 <td>HealPoints</td>
-                <td>Healing equivalent of TankPoints. Breaks down the importance of each stats based on your class. Also has a calculator for basic simcrafting.</td>
+                <td>Healing equivalent of TankPoints. Breaks down the importance of each stats based on your class. Also
+                    has a calculator for basic simcrafting.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/HealPoints.zip">📥</a></td>
             </tr>
             <tr>
@@ -228,7 +239,8 @@
             </tr>
             <tr>
                 <td>ImprovedCamera</td>
-                <td>Enables you to zoom out even further than what the game allows you. It's just an addon version of a basic script macro. Nothing hacky.</td>
+                <td>Enables you to zoom out even further than what the game allows you. It's just an addon version of a
+                    basic script macro. Nothing hacky.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/ImprovedCamera.zip">📥</a></td>
             </tr>
             <tr>
@@ -268,7 +280,8 @@
             </tr>
             <tr>
                 <td>NWTooltipFix</td>
-                <td>Brings back the 2.4 item values to 2.0. Make sure you delete your cache after installing the addon. Don't forget to delete it after 2.0.</td>
+                <td>Brings back the 2.4 item values to 2.0. Make sure you delete your cache after installing the addon.
+                    Don't forget to delete it after 2.0.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/NWTooltipFix.zip">📥</a></td>
             </tr>
             <tr>
@@ -283,7 +296,8 @@
             </tr>
             <tr>
                 <td>PersonalResourceDisplay</td>
-                <td>Puts a minimal health and mana/rage/enery bar in the middle of your screen. Configured by editing its .lua files.</td>
+                <td>Puts a minimal health and mana/rage/enery bar in the middle of your screen. Configured by editing
+                    its .lua files.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/PersonalResourceDisplay.zip">📥</a></td>
             </tr>
             <tr>
@@ -303,7 +317,8 @@
             </tr>
             <tr>
                 <td>PlateBuffer</td>
-                <td>Adds debuffs to nameplates. It doesn't change the way your nameplates look. It has technical <a href="https://github.com/nullfoxh/PlateBuffer#technical-limitations">limitations</a>.</td>
+                <td>Adds debuffs to nameplates. It doesn't change the way your nameplates look. It has technical <a
+                        href="https://github.com/nullfoxh/PlateBuffer#technical-limitations">limitations</a>.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/PlateBuffer.zip">📥</a></td>
             </tr>
             <tr>
@@ -328,7 +343,8 @@
             </tr>
             <tr>
                 <td>RaidBuffStatus</td>
-                <td>Similar to BigBrother, with the same functionality. Allows you to see what raid/party buffs are missing.</td>
+                <td>Similar to BigBrother, with the same functionality. Allows you to see what raid/party buffs are
+                    missing.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/RaidBuffStatus.zip">📥</a></td>
             </tr>
             <tr>
@@ -338,7 +354,8 @@
             </tr>
             <tr>
                 <td>RaidCooldowns_Display</td>
-                <td>RaidCooldowns alone doesn't allow you to see some CDs. This allows you to see those CDs, assuming the right people have it installed.</td>
+                <td>RaidCooldowns alone doesn't allow you to see some CDs. This allows you to see those CDs, assuming
+                    the right people have it installed.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/RaidCooldowns_Display.zip">📥</a></td>
             </tr>
             <tr>
@@ -358,7 +375,8 @@
             </tr>
             <tr>
                 <td>Reactions</td>
-                <td>This will let you say or do things based on actions happening to you or around you. It's quite extensible, so you better <a href="https://github.com/Shanghi/Reactions">read this</a>.</td>
+                <td>This will let you say or do things based on actions happening to you or around you. It's quite
+                    extensible, so you better <a href="https://github.com/Shanghi/Reactions">read this</a>.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/Reactions.zip">📥</a></td>
             </tr>
             <tr>
@@ -368,12 +386,16 @@
             </tr>
             <tr>
                 <td>Robin</td>
-                <td>Another Raid CD tracker. This is uglier than RaidCooldowns addon but it shows every CD without going through hoops.</td>
+                <td>Another Raid CD tracker. This is uglier than RaidCooldowns addon but it shows every CD without going
+                    through hoops.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/Robin.zip">📥</a></td>
             </tr>
             <tr>
                 <td>Samuel</td>
-                <td>Simple swing timer. Supports OHs as well. This addon can spam your chat window. If you want the non-chatty version, get <a href="https://github.com/wvault/tbc/raw/master/addons/SamuelTBC%20(Non-chatty).zip">this one</a> instead.</td>
+                <td>Simple swing timer. Supports OHs as well. This addon can spam your chat window. If you want the
+                    non-chatty version, get <a
+                        href="https://github.com/wvault/tbc/raw/master/addons/SamuelTBC%20(Non-chatty).zip">this one</a>
+                    instead.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/SamuelTBC.zip">📥</a></td>
             </tr>
             <tr>
@@ -408,7 +430,8 @@
             </tr>
             <tr>
                 <td>TankBuddy</td>
-                <td>Announce your tanking CDs to specified chat channels, including resisted/missed abilities. Works for every tanking class.</td>
+                <td>Announce your tanking CDs to specified chat channels, including resisted/missed abilities. Works for
+                    every tanking class.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/TankBuddy.zip">📥</a></td>
             </tr>
             <tr>
@@ -423,7 +446,8 @@
             </tr>
             <tr>
                 <td>TellMeWhen</td>
-                <td>An addon that provides visual, auditory, and textual notifications about cooldowns, buffs, and pretty much every other element of combat.</td>
+                <td>An addon that provides visual, auditory, and textual notifications about cooldowns, buffs, and
+                    pretty much every other element of combat.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/TellMeWhen.zip">📥</a></td>
             </tr>
             <tr>
@@ -443,6 +467,15 @@
             </tr>
         </tbody>
     </table>
-    <footer>Ran into a problem, or have ideas for improvement? Create an issue, or a pull request on <a href="https://github.com/wvault/tbc">Github</a>.</footer>
+    <footer>Ran into a problem, or have ideas for improvement? Create an issue, or a pull request on <a
+            href="https://github.com/wvault/tbc">Github</a></footer>
+    <script>
+        addBackToTop({
+            backgroundColor: '#ffda0c',
+            innerHTML: '<svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>',
+            textColor: '#96071f'
+        })
+    </script>
 </body>
+
 </html>
