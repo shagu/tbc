@@ -9,9 +9,6 @@
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/vanilla-back-to-top.min.js"></script>
     <script>
-        addBackToTop()
-    </script>
-    <script>
         $(document).ready(function () {
             $("#search").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
@@ -312,7 +309,7 @@
             </tr>
             <tr>
                 <td>PimpMyShadowform</td>
-                <td>Displays your main shadow spells' durations and CDs.</td>
+                <td>Displays your main shadow spells durations and CDs.</td>
                 <td><a href="https://github.com/wvault/tbc/raw/master/addons/PimpMyShadowform.zip">📥</a></td>
             </tr>
             <tr>
@@ -471,9 +468,9 @@
             href="https://github.com/wvault/tbc">Github</a></footer>
     <script>
         addBackToTop({
-            backgroundColor: '#ffda0c',
-            innerHTML: '<svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>',
-            textColor: '#96071f'
+            diameter: 50,
+            backgroundColor: 'var(--background-alt)',
+            textColor: 'var(--text-main)'
         })
     </script>
 </body>
