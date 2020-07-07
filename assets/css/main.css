@@ -12,8 +12,8 @@
   --code: #ffbe85;
   --animation-duration: 0.1s;
   --button-hover: #324759;
-  --scrollbar-thumb: var(--button-hover);
-  --scrollbar-thumb-hover: rgb(65, 92, 115);
+  --scrollbar-thumb: rgb(53,74,96);
+  --scrollbar-thumb-hover: rgb(43, 56, 71);
   --form-placeholder: #a9a9a9;
   --form-text: #fff;
   --variable: #d941e2;
@@ -36,8 +36,8 @@
     --code: #000;
     --animation-duration: 0.1s;
     --button-hover: #ddd;
-    --scrollbar-thumb: rgb(44, 63, 79);
-    --scrollbar-thumb-hover: rgb(32, 45, 56);
+    --scrollbar-thumb: rgb(196, 195, 195);
+    --scrollbar-thumb-hover: rgb(145, 145, 145);
     --form-placeholder: #949494;
     --form-text: #000;
     --variable: #39a33c;
