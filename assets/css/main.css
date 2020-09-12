@@ -69,12 +69,6 @@ h1 {
   margin-top: 0
 }
 
-div#searchbar {
-  display: flex;
-  justify-content: left;
-  position: relative
-}
-
 h1,
 h2,
 h3,
@@ -319,6 +313,73 @@ a {
 a:hover {
   text-decoration: none
 }
+
+/* Sandbox */
+
+a#header {
+  font-size: 0.7em;
+}
+
+div#searchbar {
+  display: flex;
+  justify-content: left;
+  position: relative
+}
+
+div#content {
+  width: 75%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+img#icons {
+  height: 2.5%;
+  width: 2.5%;
+}
+
+img#icons-alt {
+  height: 1.65%;
+  width: 1.65%;
+}
+
+code {
+  padding: 5px 5px 5px 5px;
+  display: block;
+  background: #f5f7f9;
+}
+
+.sidenav {
+  position: fixed;
+  right: 5em;
+  overflow-x: hidden;
+}
+
+.sidenav a {
+  text-decoration: none;
+  font-size: inherit;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: inherit;}
+  .sidenav a {font-size: inherit;}
+}
+
+/* Sandbox */
 
 var {
   color: var(--variable);
