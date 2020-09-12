@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBC (2.4.3) | Macros</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bigfoot.min.js"></script>
+</head>
+
+<body>
+    <h1>Macros | <a id="header" href="../addons/index.html">Addons</a></h1>
+    <h2><mark>This section is still in progress.</mark></h2>
+    <div class="sidenav">
+    <ul>
+        <li><a href="#general">General</a></li>
+        <li><a href="#druid">Druid</a></li>
+        <li><a href="#hunter">Hunter</a></li>
+        <li><a href="#mage">Mage</a></li>
+        <li><a href="#paladin">Paladin</a></li>
+        <li><a href="#priest">Priest</a></li>
+        <li><a href="#rogue">Rogue</a></li>
+        <li><a href="#shaman">Shaman</a></li>
+        <li><a href="#warlock">Warlock</a></li>
+        <li><a href="#warrior">Warrior</a></li>
+    </ul>
+    </div>
+    <div id="content">
+        <h1 id="general"><a href="#general"><img id="icons" src="../assets/img/general.png"></a> General</h1>
+            <h3>Mouseover (Friendly)</h3>
+                <code>
+                    /cast [target=mouseover, exists] [help] [target=player] SPELLNAME
+                </code>
+            <h3>Mouseover (Harmful)</h3>
+                <code>
+                    /cast [target=mouseover, exists] [help] [target=enemy] SPELLNAME<br>
+                    /cast SPELLNAME
+                </code>
+            <h3>Cancel Aura</h3>
+                <code>
+                    /cast SPELLNAME<br>
+                    /cancelaura SPELLNAME
+                </code>
+            <h3>Avoidance Check</h3>
+                <code>
+                    /script DEFAULT_CHAT_FRAME:AddMessage("Need 102.4 combined avoidance. Currently at:",0.8,0.8,1)<br>
+                    /script DEFAULT_CHAT_FRAME:AddMessage(GetDodgeChance()+GetBlockChance()+GetParryChance()+5+(GetCombatRating(CR_DEFENSE_SKILL)*150/355 + 20)*0.04,1,0.5,0)
+                </code>
+            <h3>Harm / Help</h3>
+                <code>
+                    /cast [harm] SPELLNAME; [help] SPELLNAME<br>
+                    /cast SPELLNAME
+                </code>
+        <br>
+        <h1 id="druid"><a href="#druid"><img id="icons" src="../assets/img/classes/druid/icon.jpg"></a> Druid</h1>
+            <h2><img id="icons-alt" src="../assets/img/classes/druid/balance/icon.jpg" > Balance</h2>
+                <h3>Cyclone</h3>
+                    <code>
+                        #showtooltip Cyclone<br>
+                        /cast [target=focus, modifier:shift] Cyclone; Cyclone
+                    </code>
+                <h3>Focus Root</h3>
+                    <code>
+                        #showtooltip Entangling Roots(Rank 1)<br>
+                        /cast [target=focus] Entangling Roots(Rank 1)
+                    </code>
+            <h2><img id="icons-alt" src="../assets/img/classes/druid/feraltank/icon.jpg"> Feral Tank</h2>
+                <h3></h3>
+    </div>
+    <footer>Ran into a problem, or have ideas for improvement? Create an issue, or a pull request on <a href="https://github.com/wvault/tbc">Github</a>.</footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/vanilla-back-to-top.min.js"></script>
+
+    <!-- Initiate Back to Top -->
+    <script>
+        addBackToTop({
+            diameter: 50,
+            backgroundColor: 'var(--background-alt)',
+            textColor: 'var(--text-main)'
+        })
+    </script>
+
+    <!-- Initiate Bigfoot -->
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+</body>
