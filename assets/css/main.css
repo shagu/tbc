@@ -78,7 +78,58 @@ body {
 
 /* Main */
 
-.section {
+/* Sandbox */
+
+a#header {
+  font-size: 0.7em;
+}
+
+div#searchbar {
+  display: flex;
+  justify-content: left;
+  position: relative
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+img#icons {
+  height: .75em;
+  width: .75em;
+}
+
+img#icons-alt {
+  height: .75em;
+  width: .75em;
+}
+
+code {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  display: block;
+  background: var(--background-alt);
+}
+
+.toc {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: var(--background-body);
+  padding: 0.1em;
+  font-size: 1em;
+  /*
+  border-style: solid;
+  border-color: var(--background);
+  border-width: 0.1em;
+  */
+}
+
+/* Sandbox */
+
+.section { /* This is the *body* for Addons and Macros pages. */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.4;
   max-width: 1400px;
@@ -345,73 +396,6 @@ a {
 a:hover {
   text-decoration: none
 }
-
-/* Sandbox */
-
-a#header {
-  font-size: 0.7em;
-}
-
-div#searchbar {
-  display: flex;
-  justify-content: left;
-  position: relative
-}
-
-div#content {
-  width: 75%;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  text-align: right;
-}
-
-img#icons {
-  height: .75em;
-  width: .75em;
-}
-
-img#icons-alt {
-  height: .75em;
-  width: .75em;
-}
-
-code {
-  padding: 5px 5px 5px 5px;
-  display: block;
-  background: var(--background-alt);
-}
-
-.sidenav {
-  position: fixed;
-  right: 5em;
-  overflow-x: hidden;
-}
-
-.sidenav a {
-  text-decoration: none;
-  font-size: inherit;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #064579;
-}
-
-.main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: inherit;}
-  .sidenav a {font-size: inherit;}
-}
-
-/* Sandbox */
 
 var {
   color: var(--variable);
