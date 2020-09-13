@@ -6,8 +6,8 @@ This is a repository where I collect/backup everything TBC. It's still a work in
 
 Some sections of this repository have a website of their own. These are:
 
-- [Addons](https://wvault.github.io/tbc/addons)
-- [Macros](https://wvault.github.io/tbc/macros)
+- [Addons](https://wowvault.github.io/tbc/addons)
+- [Macros](https://wowvault.github.io/tbc/macros)
 
 # Contributions
 
