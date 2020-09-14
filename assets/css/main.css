@@ -48,11 +48,6 @@
 
 /* Main */
 
-html,
-body {
-  height: 100%;
-}
-
 .home {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   color: var(--text-main);
@@ -60,6 +55,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100%;
   display: table;
 }
 
@@ -108,23 +104,28 @@ img#icons-alt {
 }
 
 code {
+  border-radius: 0.5em;
   padding: 0.5em 0.5em 0.5em 0.5em;
   display: block;
   background: var(--background-alt);
 }
 
 .toc {
-  position: -webkit-sticky;
+  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
   background: var(--background-body);
-  padding: 0.1em;
-  font-size: 1em;
-  /*
   border-style: solid;
-  border-color: var(--background);
-  border-width: 0.1em;
-  */
+  border-width: 0.05em;
+  border-color: var(--background-alt);
+  text-align: center;
+  padding: 0.05em;
+  font-size: 1.02em;
+}
+
+mark {
+  font-size: 2em;
+  background: var(--highlight);
 }
 
 /* Sandbox */
