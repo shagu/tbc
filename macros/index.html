@@ -12,27 +12,21 @@
 
 <body class="section">
     <h1>Macros | <a id="header" href="../addons/index.html">Addons</a></h1>
-    <mark>Work in progress.</mark>
     <div class="toc"><p><a href="#general"><img id="icons-alt" src="../assets/img/general.png"> General</a> | <a href="#druid"><img id="icons-alt" src="../assets/img/classes/druid/icon.jpg"> Druid</a> | <a href="#hunter"><img id="icons-alt" src="../assets/img/classes/hunter/icon.jpg"> Hunter</a> | <a href="#mage"><img id="icons-alt" src="../assets/img/classes/mage/icon.jpg"> Mage</a> | <a href="#paladin"><img id="icons-alt" src="../assets/img/classes/paladin/icon.jpg"> Paladin</a> | <a href="#priest"><img id="icons-alt" src="../assets/img/classes/priest/icon.jpg"> Priest</a> | <a href="#rogue"><img id="icons-alt" src="../assets/img/classes/rogue/icon.jpg"> Rogue</a> | <a href="#shaman"><img id="icons-alt" src="../assets/img/classes/shaman/icon.jpg"> Shaman</a> | <a href="#warlock"><img id="icons-alt" src="../assets/img/classes/warlock/icon.jpg"> Warlock</a> | <a href="#warrior"><img id="icons-alt" src="../assets/img/classes/warrior/icon.jpg"> Warrior</a></p></div>
     <h1 id="general"><a href="#general"><img id="icons" src="../assets/img/general.png"></a> General</h1>
         <h3>Mouseover (Friendly)</h3>
             <code>
-                /cast [target=mouseover, exists] [help] [target=player] SPELLNAME
+                /cast [target=mouseover,exists][target=target,exists][target=player] SPELLNAME
             </code>
         <h3>Mouseover (Harmful)</h3>
             <code>
-                /cast [target=mouseover, exists] [help] [target=enemy] SPELLNAME<br>
+                /cast [target=mouseover, exists][help][target=enemy] SPELLNAME<br>
                 /cast SPELLNAME
             </code>
         <h3>Cancel Aura</h3>
             <code>
                 /cast SPELLNAME<br>
                 /cancelaura SPELLNAME
-            </code>
-        <h3>Avoidance Check</h3>
-            <code>
-                /script DEFAULT_CHAT_FRAME:AddMessage("Need 102.4 combined avoidance. Currently at:",0.8,0.8,1)<br>
-                /script DEFAULT_CHAT_FRAME:AddMessage(GetDodgeChance()+GetBlockChance()+GetParryChance()+5+(GetCombatRating(CR_DEFENSE_SKILL)*150/355 + 20)*0.04,1,0.5,0)
             </code>
         <h3>Harm/Help</h3>
             <code>
@@ -45,6 +39,14 @@
                 /use item:22105<br>
                 /use item:22104<br>
                 /use item:22103
+            </code>
+        <h3>Set Target Marks <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></h3>
+            <code>
+                /script SetRaidTarget("target", n)
+            </code>
+            <p><em>or</em></p>
+            <code>
+                /script SetRaidTarget("mouseover", n)
             </code>
     <br>
     <h1 id="druid"><a href="#druid"><img id="icons" src="../assets/img/classes/druid/icon.jpg"></a> Druid</h1>
@@ -61,15 +63,97 @@
                 </code>
         <h2><img id="icons-alt" src="../assets/img/classes/druid/feraltank/icon.jpg"> Feral Tank</h2>
             <h3></h3>
+        <h2><img id="icons-alt" src="../assets/img/classes/druid/feraldps/icon.jpg" > Feral DPS</h2>
+            <h3>Powershift</h3>
+                <code>
+                    /cast !Cat Form
+                </code>
+    <br>
     <h1 id="hunter"><a href="#hunter"><img id="icons" src="../assets/img/classes/hunter/icon.jpg"></a> Hunter</h1>
+        <h3>Steady Shot & Kill Command</h3>
+            <code>
+                #showtooltip Steady Shot<br>
+                /cast Steady Shot<br>
+                /cast [exists,target=pettarget] Kill Command<br>
+                /run UIErrorsFrame:Clear();
+            </code>
+        <h3>All-in-One Pet Control</h3>
+            <code>
+                #show [modifier:alt] FOODNAME<br>
+                /cast [nopet] Call Pet<br>
+                /cast [dead][mod:shift] Revive Pet<br>
+                /cast [pet,nomod,button:1] Mend Pet<br>
+                /cast [pet,nomod,button:2] Dismiss Pet<br>
+                /cast [pet,mod:alt] Feed Pet<br>
+                /use [pet,mod:alt] FOODNAME
+            </code>
+        <h3>Focus Misdirection</h3>
+            <code>
+                #showtooltip Misdirection<br>
+                /cast [target=focus] Misdirection<br>
+                /s Misdirection on %f
+            </code>
+    <br>
     <h1 id="mage"><a href="#mage"><img id="icons" src="../assets/img/classes/mage/icon.jpg"></a> Mage</h1>
+        <h3>Instance Ice Block</h3>
+            <code>
+                #showtooltip Ice Block<br>
+                /stopcasting<br>
+                /cast Ice Block
+            </code>
+    <br>
     <h1 id="paladin"><a href="#paladin"><img id="icons" src="../assets/img/classes/paladin/icon.jpg"></a> Paladin</h1>
+        <h2><img id="icons-alt" src="../assets/img/classes/paladin/protection/icon.jpg" > Protection</h2>
+            <h3>Taunt</h3>
+                <code>
+                    /cast [noharm][noharm,target=targettarget][] Righteous Defense
+                </code>
+            <h3>Avoidance Check</h3>
+                <code>
+                    /script DEFAULT_CHAT_FRAME:AddMessage("Need 102.4 combined avoidance. Currently at:",0.8,0.8,1)<br>
+                    /script DEFAULT_CHAT_FRAME:AddMessage(GetDodgeChance()+GetBlockChance()+GetParryChance()+5+(GetCombatRating(CR_DEFENSE_SKILL)*150/355 + 20)*0.04,1,0.5,0)
+                </code>
+    <br>
     <h1 id="priest"><a href="#priest"><img id="icons" src="../assets/img/classes/priest/icon.jpg"></a> Priest</h1>
+        <h2><img id="icons-alt" src="../assets/img/classes/priest/shadow/icon.jpg" > Shadow</h2>
+            <h3>Mind Flay</h3>
+                <code>
+                    #showtooltip Mind Flay<br>
+                    /cast [nochanneling] Mind Flay
+                </code>
+    <br>
     <h1 id="rogue"><a href="#rogue"><img id="icons" src="../assets/img/classes/rogue/icon.jpg"></a> Rogue</h1>
+        <h3>Focus Kick</h3>
+            <code>
+                #showtooltip Kick<br>
+                /cast [target=focus] Kick
+            </code>
+    <br>
     <h1 id="shaman"><a href="#shaman"><img id="icons" src="../assets/img/classes/shaman/icon.jpg"></a> Shaman</h1>
+        <h2><img id="icons-alt" src="../assets/img/classes/shaman/enhancement/icon.jpg" > Enhancement</h2>
+            <h3>Twisting</h3>
+                <code>
+                    /castsequence reset=10 Stormstrike, Windfury Totem, Grace of Air Totem
+                </code>
+        <h2><img id="icons-alt" src="../assets/img/classes/shaman/restoration/icon.jpg" > Restoration</h2>
+            <h3>Instant Heal</h3>
+                <code>
+                    #showtooltip Nature's Swiftness<br>
+                    /cast Nature's Swiftness<br>
+                    /stopcasting<br>
+                    /cast [help] Healing Wave(Rank 12); [target=player] Healing Wave(Rank12)
+                </code>
+    <br>
     <h1 id="warlock"><a href="#warlock"><img id="icons" src="../assets/img/classes/warlock/icon.jpg"></a> Warlock</h1>
+    <br>
     <h1 id="warrior"><a href="#warrior"><img id="icons" src="../assets/img/classes/warrior/icon.jpg"></a> Warrior</h1>
-
+        <h2><img id="icons-alt" src="../assets/img/classes/warrior/protection/icon.jpg" > Protection</h2>
+            <h3>Avoidance Check</h3>
+                <code>
+                    /script DEFAULT_CHAT_FRAME:AddMessage("Need 102.4 combined avoidance. Currently at:",0.8,0.8,1)<br>
+                    /script DEFAULT_CHAT_FRAME:AddMessage(GetDodgeChance()+GetBlockChance()+GetParryChance()+5+(GetCombatRating(CR_DEFENSE_SKILL)*150/355 + 20)*0.04,1,0.5,0)
+                </code>
+    <br>
     <footer>Ran into a problem, or have ideas for improvement? Create an issue, or a pull request on <a href="https://github.com/wowvault/tbc">Github</a>.</footer>
 
     <!-- Scripts -->
@@ -109,4 +193,8 @@
             });
         });
     </script>
+
+    <!-- Footnotes -->
+    <div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Replace <em>n</em> with the mark of your choosing:<br><br>1: <img id="icons-alt" src="../assets/img/marks/star.png"><br>2: <img id="icons-alt" src="../assets/img/marks/circle.png"><br>3: <img id="icons-alt" src="../assets/img/marks/diamond.png"><br>4: <img id="icons-alt" src="../assets/img/marks/triangle.png"><br>5: <img id="icons-alt" src="../assets/img/marks/moon.png"><br>6: <img id="icons-alt" src="../assets/img/marks/square.png"><br>7: <img id="icons-alt" src="../assets/img/marks/cross.png"><br>8: <img id="icons-alt" src="../assets/img/marks/skull.png"><a href="#fnref:1" title="return to article"> ↩</a><p></li></ol></div>
+
 </body>
