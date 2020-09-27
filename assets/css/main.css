@@ -61,6 +61,7 @@
   width: 100%;
   height: 100%;
   display: table;
+  scroll-behavior: smooth;
 }
 
 .main {
@@ -75,6 +76,7 @@
   width: 100%;
   height: 100%;
   display: table;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -180,7 +182,8 @@ mark {
   word-wrap: break-word;
   color: var(--text-main);
   background: var(--background-body);
-  text-rendering: optimizeLegibility
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 input {
