@@ -96,15 +96,15 @@
   font-size: 4em;
 }
 
-.link {
+.tbclink {
   color: #30e736;
 }
 
-.link:hover {
+.tbclink:hover {
   color: #39a33c;
 }
 
-.divide {
+.tbcdivide {
   color: #84c589;
 }
 
