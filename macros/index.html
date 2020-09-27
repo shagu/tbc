@@ -40,6 +40,14 @@
                 /use item:22104<br>
                 /use item:22103
             </code>
+        <h3>Set Camera Distance</h3>
+            <code>
+                /script SetCVar("cameraDistanceMax",30)
+            </code>
+        <h3>Hide Gryphons from Default Action Bars</h3>
+            <code>
+                /run MainMenuBarLeftEndCap:Hide(); MainMenuBarRightEndCap:Hide()
+            </code>
         <h3>Set Target Marks <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></h3>
             <code>
                 /script SetRaidTarget("target", n)
@@ -47,6 +55,10 @@
             <p><em>or</em></p>
             <code>
                 /script SetRaidTarget("mouseover", n)
+            </code>
+        <h3>Set Master Loot <sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h3>
+            <code>
+                /run j=GetLootMethod() k=UnitLevel("target") if (k<0 and IsRaidLeader() and j=="group") then SetLootMethod("master","YOURNAME") end
             </code>
     <br>
     <h1 id="druid"><a href="#druid"><img id="icons" src="../assets/img/classes/druid/icon.jpg"></a> Druid</h1>
@@ -92,6 +104,10 @@
                 #showtooltip Misdirection<br>
                 /cast [target=focus] Misdirection<br>
                 /s Misdirection on %f
+            </code>
+        <h3>Get Happiness</h3>
+            <code>
+                /script h,_,l=GetPetHappiness();DEFAULT_CHAT_FRAME:AddMessage("Happy: " .. h .. " - Loyalty: " .. l);
             </code>
     <br>
     <h1 id="mage"><a href="#mage"><img id="icons" src="../assets/img/classes/mage/icon.jpg"></a> Mage</h1>
@@ -145,6 +161,11 @@
                 </code>
     <br>
     <h1 id="warlock"><a href="#warlock"><img id="icons" src="../assets/img/classes/warlock/icon.jpg"></a> Warlock</h1>
+        <h3>Delete Shards <sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h3>
+            <code>
+                /run i="Soul Shard"d=GetItemCount(i)-30 for x=0,4 do for y=1,GetContainerNumSlots(x) do  if (d>0) then l=GetContainerItemLink(x,y) if l and GetItemInfo(l)==i then PickupContainerItem(x,y) DeleteCursorItem() d=d-1 end end end end<br>
+                /cast Drain Soul(Rank 1)
+            </code>
     <br>
     <h1 id="warrior"><a href="#warrior"><img id="icons" src="../assets/img/classes/warrior/icon.jpg"></a> Warrior</h1>
         <h2><img id="icons-alt" src="../assets/img/classes/warrior/protection/icon.jpg" > Protection</h2>
@@ -170,7 +191,13 @@
 
     <!-- Initiate Bigfoot -->
     <script type="text/javascript">
-        $.bigfoot();
+        var bigfoot = $.bigfoot(
+            {
+                deleteOnUnhover: false,
+                preventPageScroll: false,
+                activateOnHover: false
+            }
+        );
     </script>
 
     <!-- ToC Scroll -->
@@ -196,5 +223,6 @@
 
     <!-- Footnotes -->
     <div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Replace <em>n</em> with the mark of your choosing:<br><br>1: <img id="icons-alt" src="../assets/img/marks/star.png"><br>2: <img id="icons-alt" src="../assets/img/marks/circle.png"><br>3: <img id="icons-alt" src="../assets/img/marks/diamond.png"><br>4: <img id="icons-alt" src="../assets/img/marks/triangle.png"><br>5: <img id="icons-alt" src="../assets/img/marks/moon.png"><br>6: <img id="icons-alt" src="../assets/img/marks/square.png"><br>7: <img id="icons-alt" src="../assets/img/marks/cross.png"><br>8: <img id="icons-alt" src="../assets/img/marks/skull.png"><a href="#fnref:1" title="return to article"> ↩</a><p></li></ol></div>
-
+    <div class="footnotes"><ol><li class="footnote" id="fn:2"><p>If you're a raid leader and often forget to turn master loot on, add this macro to one of the macros you regularly use.<a href="#fnref:2" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:3"><p>If you want to change amount of shards you want to keep, change the amount <span id="fn">30</span> within the macro.<a href="#fnref:3" title="return to article"> ↩</a><p></li></ol></div>
 </body>
