@@ -52,6 +52,24 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   color: var(--text-main);
   background: var(--background-body);
+  background-image: url('../img/tbc.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.main {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-main);
+  background: var(--background-body);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -60,16 +78,32 @@
 }
 
 .container {
+  background: rgba(0, 0, 0, 0.014);
+  backdrop-filter: blur(20px);
   text-align: center;
   display: table-cell;
   vertical-align: middle;
 }
+
 .content {
   text-align: center;
   display: inline-block;
 }
+
 .title {
-  font-size: 5em;
+  font-size: 4em;
+}
+
+.link {
+  color: #30e736;
+}
+
+.link:hover {
+  color: #39a33c;
+}
+
+.divide {
+  color: #84c589;
 }
 
 /* Main */
@@ -143,6 +177,7 @@ mark {
   max-width: 1400px;
   margin: 20px auto;
   padding: 0 10px;
+  background-image: url('../img/tbc.png');
   word-wrap: break-word;
   color: var(--text-main);
   background: var(--background-body);
