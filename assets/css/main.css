@@ -177,7 +177,6 @@ mark {
   max-width: 1400px;
   margin: 20px auto;
   padding: 0 10px;
-  background-image: url('../img/tbc.png');
   word-wrap: break-word;
   color: var(--text-main);
   background: var(--background-body);
