@@ -33,6 +33,10 @@
                 /cast [harm] SPELLNAME; [help] SPELLNAME<br>
                 /cast SPELLNAME
             </code>
+        <h3>Self-Cast Modifier and Mouseover</h3>
+            <code>
+                /cast [mod:alt,target=player][target=mouseover,exists][help][] SPELLNAME
+            </code>
         <h3>All-in-One Healthstone</h3>
             <code>
                 #showtooltip Master Healthstone<br>
@@ -42,23 +46,64 @@
             </code>
         <h3>Set Camera Distance</h3>
             <code>
-                /script SetCVar("cameraDistanceMax",30)
+                /script SetCVar("cameraDistanceMax",50)
+            </code>
+        <h3>Announce a Spell's CD in Raid/Party</h3>
+            <code>
+                #showtooltip SPELLNAME<br>
+                /run local p="SPELLNAME"local t,f,s,d=" ready!",math.floor,GetSpellCooldown(p)local c=s+d-GetTime()local m,r=f(c/60),f(c%60)if d>0 then t=": "..m.."m "..r.."s"end;SendChatMessage(p..t,UnitInRaid("Player")and"RAID"or"PARTY")
+            </code>
+        <h3>Combat Log Fix</h3>
+            <code>
+                /run local f=CreateFrame("frame",nil, UIParent);function g() DEFAULT_CHAT_FRAME:AddMessage("foo"); end; f:SetScript("OnUpdate", CombatLogClearEntries)
             </code>
         <h3>Hide Gryphons from Default Action Bars</h3>
             <code>
                 /run MainMenuBarLeftEndCap:Hide(); MainMenuBarRightEndCap:Hide()
             </code>
+        <h3>Error Messages</h3>
+            <p>Clear:</p>
+                <code>
+                    /script UIErrorsFrame:Clear()
+                </code>
+            <p>Hide:</p>
+                <code>
+                    /script UIErrorsFrame:Hide()
+                </code>
+            <p>Show:</p>
+                <code>/script UIErrorsFrame:Show()</code>
         <h3>Set Target Marks <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></h3>
+            <p>Target:</p>
+                <code>
+                    /script SetRaidTarget("target", n)
+                </code>
+            <p>Mouseover:</p>
+                <code>
+                    /script SetRaidTarget("mouseover", n)
+                </code>
+        <h3>Calculate Your Mana Gains from Innervate</h3>
             <code>
-                /script SetRaidTarget("target", n)
-            </code>
-            <p><em>or</em></p>
-            <code>
-                /script SetRaidTarget("mouseover", n)
+                /script DEFAULT_CHAT_FRAME:AddMessage((((GetUnitManaRegenRateFromSpirit("player"))*80)+((GetManaRegen("player"))*20)),0,0.1,1)
             </code>
         <h3>Set Master Loot <sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h3>
             <code>
                 /run j=GetLootMethod() k=UnitLevel("target") if (k<0 and IsRaidLeader() and j=="group") then SetLootMethod("master","YOURNAME") end
+            </code>
+        <h3>Print Current MS/FPS in /say</h3>
+            <code>
+                /script local fps = GetFramerate(); down, up, lag = GetNetStats(); SendChatMessage("Latency: "..lag.." ms // FPS: "..floor(fps), say);
+            </code>
+        <h3>Print Current Buffs in Chat Window</h3>
+            <code>
+                /run local i=1 while UnitBuff("player",i) do DEFAULT_CHAT_FRAME:AddMessage(UnitBuff("player",i)); i=i+1 end
+            </code>
+        <h3>Remove a Buff <sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h3>
+            <code>
+                /run local _,_,t=GetSpellInfo(n) for i=1,40 do local _,_,x=UnitBuff("player",i) if x==t then CancelPlayerBuff(i) end end
+            </code>
+        <h3>Remove Your Items to Save Repair Costs</h3>
+            <code>
+                /script local t={1,3,5,6,7,8,9,10,16,17,18}; for k,v in pairs(t) do PickupInventoryItem(v); PutItemInBag(22); end
             </code>
     <br>
     <h1 id="druid"><a href="#druid"><img id="icons" src="../assets/img/classes/druid/icon.jpg"></a> Druid</h1>
@@ -74,11 +119,28 @@
                     /cast [target=focus] Entangling Roots(Rank 1)
                 </code>
         <h2><img id="icons-alt" src="../assets/img/classes/druid/feraltank/icon.jpg"> Feral Tank</h2>
-            <h3></h3>
+            <h3>Avoidance Check</h3>
+                <code>
+                    /script DEFAULT_CHAT_FRAME:AddMessage(2.6-(GetCombatRatingBonus(CR_DEFENSE_SKILL)*.04+GetCombatRatingBonus(CR_CRIT_TAKEN_MELEE)),1,0.5,0)
+                </code>
+            <h3>Health Shift <sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></h3>
+                <code>
+                    /run local f="Dire Bear Form";f=GetSpellCooldown(f)>0 or UnitMana('player')>XXX or not IsUsableSpell(f) or CancelPlayerBuff(f)<br>
+                    /stopmacro [form:1]<br>
+                    /use Master Healthstone<br>
+                    /use Healing Potion Injector<br>
+                    /cast Dire Bear Form
+                </code>
         <h2><img id="icons-alt" src="../assets/img/classes/druid/feraldps/icon.jpg" > Feral DPS</h2>
             <h3>Powershift</h3>
                 <code>
                     /cast !Cat Form
+                </code>
+            <h3>Smarter Powershift <sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup></h3>
+                <code>
+                    /run local f="Cat Form";f=GetSpellCooldown(f)>0 or UnitMana('player')>n or not IsUsableSpell(f) or CancelPlayerBuff(f)<br>
+                    /stopmacro [form]<br>
+                    /cast Cat Form
                 </code>
     <br>
     <h1 id="hunter"><a href="#hunter"><img id="icons" src="../assets/img/classes/hunter/icon.jpg"></a> Hunter</h1>
@@ -161,7 +223,7 @@
                 </code>
     <br>
     <h1 id="warlock"><a href="#warlock"><img id="icons" src="../assets/img/classes/warlock/icon.jpg"></a> Warlock</h1>
-        <h3>Delete Shards <sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h3>
+        <h3>Delete Shards <sup id="fnref:100"><a href="#fn:100" rel="footnote">6</a></sup></h3>
             <code>
                 /run i="Soul Shard"d=GetItemCount(i)-30 for x=0,4 do for y=1,GetContainerNumSlots(x) do  if (d>0) then l=GetContainerItemLink(x,y) if l and GetItemInfo(l)==i then PickupContainerItem(x,y) DeleteCursorItem() d=d-1 end end end end<br>
                 /cast Drain Soul(Rank 1)
@@ -224,5 +286,8 @@
     <!-- Footnotes -->
     <div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Replace <em>n</em> with the mark of your choosing:<br><br>1: <img id="icons-alt" src="../assets/img/marks/star.png"><br>2: <img id="icons-alt" src="../assets/img/marks/circle.png"><br>3: <img id="icons-alt" src="../assets/img/marks/diamond.png"><br>4: <img id="icons-alt" src="../assets/img/marks/triangle.png"><br>5: <img id="icons-alt" src="../assets/img/marks/moon.png"><br>6: <img id="icons-alt" src="../assets/img/marks/square.png"><br>7: <img id="icons-alt" src="../assets/img/marks/cross.png"><br>8: <img id="icons-alt" src="../assets/img/marks/skull.png"><a href="#fnref:1" title="return to article"> ↩</a><p></li></ol></div>
     <div class="footnotes"><ol><li class="footnote" id="fn:2"><p>If you're a raid leader and often forget to turn master loot on, add this macro to one of the macros you regularly use.<a href="#fnref:2" title="return to article"> ↩</a><p></li></ol></div>
-    <div class="footnotes"><ol><li class="footnote" id="fn:3"><p>If you want to change amount of shards you want to keep, change the amount <span id="fn">30</span> within the macro.<a href="#fnref:3" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:3"><p>Replace <em>n</em> with the spell ID of the buff you want to remove.<a href="#fnref:3" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:4"><p>Be very careful using this. It's not visible but you <em>do get out of form</em> when you use this macro and if your target swings at you at that particular time, you will die.<br><br>Same as the Smart Powershift macro, make sure to change the value of <em>n</em> with the mana threshold you don't want powershifting to drop you below, so you don't stand in front of your target out of form with no mana to get back in form like a tool.<a href="#fnref:4" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:5"><p>Replace <em>n</em> with the mana threshold you don't want powershifting to drop you below.<a href="#fnref:5" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:100"><p>If you want to change amount of shards you want to keep, change the amount <span id="fn">30</span> within the macro.<a href="#fnref:100" title="return to article"> ↩</a><p></li></ol></div>
 </body>
