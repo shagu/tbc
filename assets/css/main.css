@@ -6,7 +6,7 @@
   --text-main: #dbdbdb;
   --text-bright: #fff;
   --text-muted: #717880;
-  --links: #22dd8f;
+  --links: #20c580;
   --focus: #0096bfab;
   --border: #dbdbdb;
   --code: #ffbe85;
@@ -30,7 +30,7 @@
     --text-main: #363636;
     --text-bright: #000;
     --text-muted: #999;
-    --links: #34b600;
+    --links: #5f9613;
     --focus: #0096bfab;
     --border: #dbdbdb;
     --code: #000;
@@ -61,6 +61,16 @@
   height: 100%;
   display: table;
   scroll-behavior: smooth;
+}
+
+.note {
+  font-weight: 400;
+  font-size: 0.75em;
+  font-style: italic;
+}
+
+.note::before {
+  content: "— ";
 }
 
 .tbc {
