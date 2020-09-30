@@ -6,49 +6,53 @@
   --text-main: #dbdbdb;
   --text-bright: #fff;
   --text-muted: #717880;
-  --links: #20c580;
+  --links: #41adff;
+  --linkshover: #41adff;
   --focus: #0096bfab;
   --border: #dbdbdb;
   --code: #ffbe85;
   --animation-duration: 0.1s;
   --button-hover: #324759;
-  --scrollbar-thumb: rgb(53,74,96);
-  --scrollbar-thumb-hover: rgb(43, 56, 71);
+  --scrollbar-thumb: var(--button-hover);
+  --scrollbar-thumb-hover: rgb(65, 92, 115);
   --form-placeholder: #a9a9a9;
   --form-text: #fff;
   --variable: #d941e2;
   --highlight: #efdb43;
-  --select-arrow: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='62.5' width='116.9' fill='%23efefef'%3E %3Cpath d='M115.3,1.6 C113.7,0 111.1,0 109.5,1.6 L58.5,52.7 L7.4,1.6 C5.8,0 3.2,0 1.6,1.6 C0,3.2 0,5.8 1.6,7.4 L55.5,61.3 C56.3,62.1 57.3,62.5 58.4,62.5 C59.4,62.5 60.5,62.1 61.3,61.3 L115.2,7.4 C116.9,5.8 116.9,3.2 115.3,1.6Z'/%3E %3C/svg%3E")
+  --select-arrow: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='62.5' width='116.9' fill='%23efefef'%3E %3Cpath d='M115.3,1.6 C113.7,0 111.1,0 109.5,1.6 L58.5,52.7 L7.4,1.6 C5.8,0 3.2,0 1.6,1.6 C0,3.2 0,5.8 1.6,7.4 L55.5,61.3 C56.3,62.1 57.3,62.5 58.4,62.5 C59.4,62.5 60.5,62.1 61.3,61.3 L115.2,7.4 C116.9,5.8 116.9,3.2 115.3,1.6Z'/%3E %3C/svg%3E");
 }
 
-@media (prefers-color-scheme:light) {
-  :root {
-    --background-body: #fff;
-    --background: #efefef;
-    --background-alt: #f7f7f7;
-    --selection: #9e9e9e;
-    --text-main: #363636;
-    --text-bright: #000;
-    --text-muted: #999;
-    --links: #5f9613;
-    --focus: #0096bfab;
-    --border: #dbdbdb;
-    --code: #000;
-    --animation-duration: 0.1s;
-    --button-hover: #ddd;
-    --scrollbar-thumb: rgb(196, 195, 195);
-    --scrollbar-thumb-hover: rgb(145, 145, 145);
-    --form-placeholder: #949494;
-    --form-text: #000;
-    --variable: #39a33c;
-    --highlight: #ff0;
-    --select-arrow: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='62.5' width='116.9' fill='%23161f27'%3E %3Cpath d='M115.3,1.6 C113.7,0 111.1,0 109.5,1.6 L58.5,52.7 L7.4,1.6 C5.8,0 3.2,0 1.6,1.6 C0,3.2 0,5.8 1.6,7.4 L55.5,61.3 C56.3,62.1 57.3,62.5 58.4,62.5 C59.4,62.5 60.5,62.1 61.3,61.3 L115.2,7.4 C116.9,5.8 116.9,3.2 115.3,1.6Z'/%3E %3C/svg%3E")
-  }
+@media (prefers-color-scheme: light) {
+:root {
+  --background-body: #fff;
+  --background: #efefef;
+  --background-alt: #f7f7f7;
+  --selection: #9e9e9e;
+  --text-main: #363636;
+  --text-bright: #000;
+  --text-muted: #999;
+  --links: #0076d1;
+  --linkshover: #0076d1;
+  --focus: #0096bfab;
+  --border: #dbdbdb;
+  --code: #000;
+  --animation-duration: 0.1s;
+  --button-hover: #ddd;
+  --scrollbar-thumb: rgb(44, 63, 79);
+  --scrollbar-thumb-hover: rgb(32, 45, 56);
+  --form-placeholder: #949494;
+  --form-text: #000;
+  --variable: #39a33c;
+  --highlight: #ff0;
+  --select-arrow: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' height='62.5' width='116.9' fill='%23161f27'%3E %3Cpath d='M115.3,1.6 C113.7,0 111.1,0 109.5,1.6 L58.5,52.7 L7.4,1.6 C5.8,0 3.2,0 1.6,1.6 C0,3.2 0,5.8 1.6,7.4 L55.5,61.3 C56.3,62.1 57.3,62.5 58.4,62.5 C59.4,62.5 60.5,62.1 61.3,61.3 L115.2,7.4 C116.9,5.8 116.9,3.2 115.3,1.6Z'/%3E %3C/svg%3E");
+}
 }
 
-/* Main */
+/******************/
+/* My Playground */
+/****************/
 
-.main {
+.mainsection { /* This is for the main page that leads to the Addons and Macros pages */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   color: var(--text-main);
   background: var(--background-body);
@@ -63,107 +67,76 @@
   scroll-behavior: smooth;
 }
 
-.note {
+.subsection { /* This is the *body* for Addons and Macros pages. */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.4;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 10px;
+  word-wrap: break-word;
+  color: var(--text-main);
+  background: var(--background-body);
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+.note { /* For extra information that appears next to h3 on the Macros page */
   font-weight: 400;
   font-size: 0.75em;
   font-style: italic;
 }
 
-.note::before {
+.note::before { /* For extra information that appears next to h3 on the Macros page */
   content: "— ";
 }
 
-.tbc {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  color: var(--text-main);
-  background: var(--background-body);
-  background-image: url('../img/tbc.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  display: table;
-  scroll-behavior: smooth;
-}
-
-.container {
-  background: rgba(0, 0, 0, 0.014);
-  backdrop-filter: blur(20px);
+.container { /* Center text */
   text-align: center;
   display: table-cell;
   vertical-align: middle;
 }
 
-.content {
+.content { /* Center text */
   text-align: center;
   display: inline-block;
-}
-
-.title {
   font-size: 4em;
 }
 
-.tbclink {
-  color: #30e736;
-}
-
-.tbclink:hover {
-  color: #39a33c;
-}
-
-.tbcdivide {
-  color: #84c589;
-}
-
-/* Main */
-
-/* Sandbox */
-
-a#header {
+a#header { /* Search bar related */
   font-size: 0.7em;
 }
 
-div#searchbar {
+div#searchbar { /* Search bar related */
   display: flex;
   justify-content: left;
   position: relative
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  text-align: right;
-}
-
-img#icons {
+img#icons { /* Icon sizes for the Macros page. This is for bigger icons next to headers */
   height: .75em;
   width: .75em;
 }
 
-img#icons-alt {
+img#icons-alt { /* Icon sizes for the Macros page. This is for icons in the navigation panel */
   height: .75em;
   width: .75em;
 }
 
-code {
+code { /* Code styling for the Macros page */
   border-radius: 0.5em;
   padding: 0.5em 0.5em 0.5em 0.5em;
   display: block;
   background: var(--background-alt);
 }
 
-span#fn {
+span#fn { /* This is for values shown inside BigFoot */
   border-radius: 0.5em;
   padding: 0.5em 0.5em 0.5em 0.5em;
   background: var(--background-alt);
   font-family: 'Courier New', Courier, monospace;
 }
 
-.toc {
+.toc { /* Navigation of the Macros page */
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
@@ -176,25 +149,14 @@ span#fn {
   font-size: 1.02em;
 }
 
-mark {
+mark { /* Highlight emphasis */
   font-size: 2em;
   background: var(--highlight);
 }
 
-/* Sandbox */
-
-.section { /* This is the *body* for Addons and Macros pages. */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.4;
-  max-width: 1400px;
-  margin: 20px auto;
-  padding: 0 10px;
-  word-wrap: break-word;
-  color: var(--text-main);
-  background: var(--background-body);
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
-}
+/******************/
+/* My Playground */
+/****************/
 
 input {
   position: absolute;
@@ -454,13 +416,21 @@ a {
 }
 
 a:hover {
-  text-decoration: none
+  text-decoration: none;
+  color: var(--linkshover);
 }
 
 var {
   color: var(--variable);
   font-style: normal;
   font-family: monospace
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
 }
 
 table {
