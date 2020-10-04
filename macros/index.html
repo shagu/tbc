@@ -81,11 +81,11 @@
         <h3>Set Target Marks <sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h3>
             <p>Target:</p>
                 <code>
-                    /script SetRaidTarget("target", n)
+                    /script SetRaidTarget("target", MARKNUMBER)
                 </code>
             <p>Mouseover:</p>
                 <code>
-                    /script SetRaidTarget("mouseover", n)
+                    /script SetRaidTarget("mouseover", MARKNUMBER)
                 </code>
         <h3>Calculate Your Mana Gains from Innervate</h3>
             <code>
@@ -95,6 +95,14 @@
             <code>
                 /run j=GetLootMethod() k=UnitLevel("target") if (k<0 and IsRaidLeader() and j=="group") then SetLootMethod("master","YOURNAME") end
             </code>
+        <h3>Mark Groups <sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></h3>
+            <code>
+                /script bbgn=mod((bbgn or 1)-1,3)+2; local t = 1; for i=1,40 do local _,_,g = GetRaidRosterInfo(i); if g==bbgn then SetRaidTarget("raid"..i,t); t=t+1; end end SendChatMessage("GROUPNAME "..bbgn,"RAID_WARNING");
+            </code>
+        <h3>Announce the Current DPS Target in Raid Warning <sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup></h3>
+            <code>
+                /script local i,s,g,u,c={"star","circle","diamond","triangle","moon","square","cross","skull"},SendChatMessage,GetRaidTargetIndex("target"),UnitName("target"),"RAID_WARNING" if g then s("Target: {"..i[g].."} "..u,c)else s("Target: "..u,c)end
+            </code>
         <h3>Print Current MS/FPS in /say</h3>
             <code>
                 /script local fps = GetFramerate(); down, up, lag = GetNetStats(); SendChatMessage("Latency: "..lag.." ms // FPS: "..floor(fps), say);
@@ -103,9 +111,17 @@
             <code>
                 /run local i=1 while UnitBuff("player",i) do DEFAULT_CHAT_FRAME:AddMessage(UnitBuff("player",i)); i=i+1 end
             </code>
-        <h3>Remove a Buff <sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></h3>
+        <h3>Print Raid Members Below a Certain HP in Chat Window <sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup></h3>
             <code>
-                /run local _,_,t=GetSpellInfo(n) for i=1,40 do local _,_,x=UnitBuff("player",i) if x==t then CancelPlayerBuff(i) end end
+                /script for i = 1, 40 do local u = "raid"..i; local hp = UnitHealthMax(u); local _, _, grp = GetRaidRosterInfo(i); if UnitExists(u) and hp < HEALTHVALUE and grp <= 5 then ChatFrame1:AddMessage(UnitName(u)..": "..hp.." HP"); end end
+            </code>
+        <h3>Check Flasks</h3>
+            <code>
+                /run nf="[Flask!]: ";for i=1,GetNumRaidMembers()do for b=1,41 do ufl=UnitAura('raid'..i,b);if ufl then if strfind(ufl,"Flask")then break;end;elseif b==41 then nf=nf..UnitName('raid'..i).." ";end;end;end;SendChatMessage(nf,"raid");
+            </code>
+        <h3>Remove a Buff <sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup></h3>
+            <code>
+                /run local _,_,t=GetSpellInfo(SPELLID) for i=1,40 do local _,_,x=UnitBuff("player",i) if x==t then CancelPlayerBuff(i) end end
             </code>
         <h3>Remove Your Items to Save Repair Costs</h3>
             <code>
@@ -129,7 +145,7 @@
                 <code>
                     /script DEFAULT_CHAT_FRAME:AddMessage(2.6-(GetCombatRatingBonus(CR_DEFENSE_SKILL)*.04+GetCombatRatingBonus(CR_CRIT_TAKEN_MELEE)),1,0.5,0)
                 </code>
-            <h3>Health Shift <sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup></h3>
+            <h3>Health Shift <sup id="fnref:8"><a href="#fn:8" rel="footnote">8</a></sup></h3>
                 <code>
                     /run local f="Dire Bear Form";f=GetSpellCooldown(f)>0 or UnitMana('player')>XXX or not IsUsableSpell(f) or CancelPlayerBuff(f)<br>
                     /stopmacro [form:1]<br>
@@ -142,9 +158,9 @@
                 <code>
                     /cast !Cat Form
                 </code>
-            <h3>Smarter Powershift <sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup></h3>
+            <h3>Smarter Powershift <sup id="fnref:9"><a href="#fn:9" rel="footnote">9</a></sup></h3>
                 <code>
-                    /run local f="Cat Form";f=GetSpellCooldown(f)>0 or UnitMana('player')>n or not IsUsableSpell(f) or CancelPlayerBuff(f)<br>
+                    /run local f="Cat Form";f=GetSpellCooldown(f)>0 or UnitMana('player')>MANAVALUE or not IsUsableSpell(f) or CancelPlayerBuff(f)<br>
                     /stopmacro [form]<br>
                     /cast Cat Form
                 </code>
@@ -229,7 +245,7 @@
                 </code>
     <br>
     <h1 id="warlock"><a href="#warlock"><img id="icons" src="../assets/img/classes/warlock/icon.jpg"></a> Warlock</h1>
-        <h3>Delete Shards <sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup></h3>
+        <h3>Delete Shards <sup id="fnref:10"><a href="#fn:10" rel="footnote">10</a></sup></h3>
             <code>
                 /run i="Soul Shard"d=GetItemCount(i)-30 for x=0,4 do for y=1,GetContainerNumSlots(x) do  if (d>0) then l=GetContainerItemLink(x,y) if l and GetItemInfo(l)==i then PickupContainerItem(x,y) DeleteCursorItem() d=d-1 end end end end<br>
                 /cast Drain Soul(Rank 1)
@@ -291,10 +307,13 @@
 
     <!-- Footnotes -->
     <div class="footnotes"><ol><li class="footnote" id="fn:1"><p>This countdown will sync with people who are also using DBM. Spamming the macro doesn't create extra bars.<br><br>To use the macro for a spell you want to use, you should replace <em>SPELLNAME</em> in the macro, and <em>TIME</em> with the amount of uptime your spell has in seconds.<a href="#fnref:1" title="return to article"> ↩</a><p></li></ol></div>
-    <div class="footnotes"><ol><li class="footnote" id="fn:2"><p>Replace <em>n</em> with the mark of your choosing:<br><br>1: <img id="icons-alt" src="../assets/img/marks/star.png"><br>2: <img id="icons-alt" src="../assets/img/marks/circle.png"><br>3: <img id="icons-alt" src="../assets/img/marks/diamond.png"><br>4: <img id="icons-alt" src="../assets/img/marks/triangle.png"><br>5: <img id="icons-alt" src="../assets/img/marks/moon.png"><br>6: <img id="icons-alt" src="../assets/img/marks/square.png"><br>7: <img id="icons-alt" src="../assets/img/marks/cross.png"><br>8: <img id="icons-alt" src="../assets/img/marks/skull.png"><a href="#fnref:2" title="return to article"> ↩</a><p></li></ol></div>
-    <div class="footnotes"><ol><li class="footnote" id="fn:3"><p>If you're a raid leader and often forget to turn master loot on, add this macro to one of the macros you regularly use.<a href="#fnref:3" title="return to article"> ↩</a><p></li></ol></div>
-    <div class="footnotes"><ol><li class="footnote" id="fn:4"><p>Replace <em>n</em> with the spell ID of the buff you want to remove.<a href="#fnref:4" title="return to article"> ↩</a><p></li></ol></div>
-    <div class="footnotes"><ol><li class="footnote" id="fn:5"><p>Be very careful using this. It's not visible but you <em>do get out of form</em> when you use this macro and if your target swings at you at that particular time, you will die.<br><br>Same as the Smart Powershift macro, make sure to change the value of <em>n</em> with the mana threshold you don't want powershifting to drop you below, so you don't stand in front of your target out of form with no mana to get back in form like a tool.<a href="#fnref:5" title="return to article"> ↩</a><p></li></ol></div>
-    <div class="footnotes"><ol><li class="footnote" id="fn:6"><p>Replace <em>n</em> with the mana threshold you don't want powershifting to drop you below.<a href="#fnref:6" title="return to article"> ↩</a><p></li></ol></div>
-    <div class="footnotes"><ol><li class="footnote" id="fn:7"><p>If you want to change amount of shards you want to keep, change the amount <span id="fn">30</span> within the macro.<a href="#fnref:7" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:2"><p>Replace <em>MARKNUMBER</em> with the mark of your choosing:<br><br>1: <img id="icons-alt" src="../assets/img/marks/star.png"><br>2: <img id="icons-alt" src="../assets/img/marks/circle.png"><br>3: <img id="icons-alt" src="../assets/img/marks/diamond.png"><br>4: <img id="icons-alt" src="../assets/img/marks/triangle.png"><br>5: <img id="icons-alt" src="../assets/img/marks/moon.png"><br>6: <img id="icons-alt" src="../assets/img/marks/square.png"><br>7: <img id="icons-alt" src="../assets/img/marks/cross.png"><br>8: <img id="icons-alt" src="../assets/img/marks/skull.png"><a href="#fnref:2" title="return to article"> ↩</a><p></li></ol></div> 
+    <div class="footnotes"><ol><li class="footnote" id="fn:3"><p>If you're a raid leader and often forget to turn master loot on, add this macro to one of the macros you regularly use. <br><br>Make sure to also replace <em>YOURNAME</em> with your character's name.<a href="#fnref:3" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:4"><p>Spamming this macro will mark groups (starting from Group 2). With each press, you will mark the next group. The order goes like this: Group 2 > Group 3 > Group 4. After you marked group 4, you'll go back to marking group 2, so the macro rotates. This is useful on variety of bosses where a group has to perform a certain act, like Gurtogg Bloodboil in Black Temple.<br><br>Feel free to replace the name of the group (that will show up within the chat announcement) by replacing <em>GROUPNAME</em>.<a href="#fnref:4" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:5"><p>If you have dumber than usual DPS players who refuse to single target mobs, this will announce the target you want them to DPS down. If your target has a mark, it will also be included in the raid warning. Make sure you yourself target the mobs before you use this macro.<a href="#fnref:5" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:6"><p>Replace <em>HEALTHVALUE</em> with the HP threshold you'd like.<a href="#fnref:6" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:7"><p>Replace <em>SPELLID</em> with the spell ID of the buff you want to remove.<a href="#fnref:7" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:8"><p>Be very careful using this. It's not visible but you <em>do get out of form</em> when you use this macro and if your target swings at you at that particular time, you will die.<br><br>Same as the Smart Powershift macro, make sure to change the value of <em>n</em> with the mana threshold you don't want powershifting to drop you below, so you don't stand in front of your target out of form with no mana to get back in form like a tool.<a href="#fnref:8" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:9"><p>Replace <em>MANAVALUE</em> with the mana threshold you don't want powershifting to drop you below.<a href="#fnref:9" title="return to article"> ↩</a><p></li></ol></div>
+    <div class="footnotes"><ol><li class="footnote" id="fn:10"><p>If you want to change amount of shards you want to keep, change the amount <em>30</em> within the macro.<a href="#fnref:10" title="return to article"> ↩</a><p></li></ol></div>
 </body>
