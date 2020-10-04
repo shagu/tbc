@@ -129,13 +129,6 @@ code { /* Code styling for the Macros page */
   background: var(--background-alt);
 }
 
-span#fn { /* This is for values shown inside BigFoot */
-  border-radius: 0.5em;
-  padding: 0.5em 0.5em 0.5em 0.5em;
-  background: var(--background-alt);
-  font-family: 'Courier New', Courier, monospace;
-}
-
 .toc { /* Navigation of the Macros page */
   position: -webkit-sticky; /* Safari */
   position: sticky;
