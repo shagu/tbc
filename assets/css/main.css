@@ -127,6 +127,10 @@ code { /* Code styling for the Macros page */
   padding: 0.5em 0.5em 0.5em 0.5em;
   display: block;
   background: var(--background-alt);
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
 }
 
 .toc { /* Navigation of the Macros page */
