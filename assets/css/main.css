@@ -151,6 +151,10 @@ mark { /* Highlight emphasis */
   background: var(--highlight);
 }
 
+:target { /* Anchor Link emphasis */
+  border: 2px solid var(--focus);
+}
+
 /******************/
 /* My Playground */
 /****************/
