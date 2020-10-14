@@ -107,6 +107,10 @@
             <code>
                 /script local fps = GetFramerate(); down, up, lag = GetNetStats(); SendChatMessage("Latency: "..lag.." ms // FPS: "..floor(fps), say);
             </code>
+        <h3>Print Current Net Stats in Chat Window</h3>
+            <code>
+                /run local down,up,lag=GetNetStats() DEFAULT_CHAT_FRAME:AddMessage("down: "..down.."\nup: "..up.."\nlatency: "..lag.." ms")
+            </code>
         <h3>Print Current Buffs in Chat Window</h3>
             <code>
                 /run local i=1 while UnitBuff("player",i) do DEFAULT_CHAT_FRAME:AddMessage(UnitBuff("player",i)); i=i+1 end
@@ -126,6 +130,14 @@
         <h3>Remove Your Items to Save Repair Costs</h3>
             <code>
                 /script local t={1,3,5,6,7,8,9,10,16,17,18}; for k,v in pairs(t) do PickupInventoryItem(v); PutItemInBag(22); end
+            </code>
+        <h3>Sell Gray Items</h3>
+            <code>
+                /script for bag = 0, 4 do for slot = 1, GetContainerNumSlots(bag) do local name = GetContainerItemLink(bag,slot) if name and string.find(name,"ff9d9d9d") then DEFAULT_CHAT_FRAME:AddMessage("Selling "..name) UseContainerItem(bag,slot) end end end
+            </code>
+        <h3>Learn All Available Skills from a Trainer</h3>
+            <code>
+                /run LoadAddOn"Blizzard_TrainerUI" f=ClassTrainerTrainButton f.e=0 if f:GetScript"OnUpdate" then f:SetScript("OnUpdate",nil) else f:SetScript("OnUpdate",function(f,e) f.e=f.e+e if f.e>.01 then f.e=0 f:Click() end end) end
             </code>
     <br>
     <h1 id="druid"><a href="#druid"><img id="icons" src="../assets/img/classes/druid/icon.jpg"></a> Druid</h1>
