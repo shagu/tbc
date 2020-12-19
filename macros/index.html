@@ -50,12 +50,25 @@
                     /ac +STATUS /run local s,m,r=SendChatMessage,UnitName("mouseover"),"SPELLNAME ";s(r.."you!","WHISPER",nil,m);s(r..tostring(m))<br>
                     /cast [target=mouseover,exists][target=target,exists][target=player] SPELLNAME
                 </code>
+            <p>Without the whisper (Remove <em>\</em> before <em>no target</em>):</p>
+                <code>
+                    #showtooltip<br>
+                    /ac +done /run SendChatMessage(format("BoP on %s",(UnitName("mouseover")or"<\no target>")),"SAY",nil,nil);<br>
+                    /cast [target=mouseover,exists][target=target,exists][target=player] Blessing of Protection
+                </code>
         <h3>All-in-One Healthstone</h3>
             <code>
                 #showtooltip Master Healthstone<br>
                 /use item:22105<br>
                 /use item:22104<br>
                 /use item:22103
+            </code>
+        <h3>One Button Drink</h3>
+            <code>
+                #showtooltip<br>
+                /use Conjured Mana Biscuit<br>
+                /use Black Coffee<br>
+                /run local F,U,C,K=SetMacroItem,GetRunningMacro(),GetItemInfo,"Conjured Mana Biscuit" if GetItemCount(K)>0 then F(U,CK) else F(U,C"Black Coffee") end
             </code>
         <h3>Set Camera Distance</h3>
             <code>
